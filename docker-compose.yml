@@ -1,0 +1,15 @@
+version: '2'
+services:
+  maven:
+    build: maven
+    volumes:
+      - data:/boxfuse-sample-java-war-hello/target/
+
+  tomcat:
+    build: tomcat
+    ports:
+      - "8080:8080"
+    volumes:
+      - data:/opt/tomcat/webapps
+volumes:
+  data:
